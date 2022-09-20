@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Vue Basics</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  />
+  <script
+    src="https://unpkg.com/vue@next"
+    defer
+  ></script>
+  <script
+    src="app.js"
+    defer
+  ></script>
+</head>
+
+<body>
+  <div id="chatArea">
+    <div class="chat-area-header">
+      <div class="chat-area-title">電腦聊天</div>
+    </div>
+    <div class="chat-area-main">
+
+      <div v-if="messagedatas.length >0">
+        <div v-for="(val,key,idx) in messagedatas">
+
+          <div
+            class="chat-msg"
+            :class="{ 'owner': val.username}"
+          >
+            <div class="chat-msg-profile">
+              <img
+                class="chat-msg-img"
+                :src="val.img"
+                alt=""
+              />
+
+            </div>
+            <div class="chat-msg-content">
+              <div class="chat-msg-text">{{val.content}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-msg owner">
+        <div class="chat-msg-profile">
+          <img
+            class="chat-msg-img"
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png"
+            alt=""
+          />
+          <!-- <div class="chat-msg-date">Message seen 1.22pm</div> -->
+        </div>
+        <div class="chat-msg-content">
+          <div class="chat-msg-text">Sit amet risus nullam eget felis eget. Dolor sed viverra ipsum😂😂😂</div>
+
+        </div>
+      </div>
+
+      <div class="chat-msg">
+        <div class="chat-msg-profile">
+          <img
+            class="chat-msg-img"
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png"
+            alt=""
+          />
+          <!-- <div class="chat-msg-date">Message seen 1.22pm</div> -->
+        </div>
+        <div class="chat-msg-content">
+          <div class="chat-msg-text">Luctus et ultrices posuere cubilia curae.</div>
+
+        </div>
+      </div>
+      <div class="chat-area-footer">
+
+        <input
+          type="text"
+          placeholder="Type something here..."
+          v-model="enteredContentValue"
+        />
+        <button @click="addMessage">發送</button>
+      </div>
+    </div>
+</body>
+
+</html>
