@@ -57,7 +57,7 @@
                 :src="val.img"
                 alt=""
               />
-
+              <div class="chat-msg-date">{{val.time}}</div>
             </div>
             <div class="chat-msg-content">
               <div class="chat-msg-text">{{val.content}}</div>
@@ -67,16 +67,17 @@
       </div>
 
 
-      <div class="chat-area-footer">
 
-        <input
-          type="text"
-          placeholder="Type something here..."
-          v-model="enteredContentValue"
-          @keyup.enter="addMessage"
-        />
-        <button @click="addMessage">發送</button>
-      </div>
+    </div>
+    <div class="chat-area-footer">
+
+      <input
+        type="text"
+        placeholder="Type something here..."
+        v-model="enteredContentValue"
+        @keyup.enter="addMessage"
+      />
+      <button @click="addMessage">發送</button>
     </div>
 
 </body>

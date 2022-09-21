@@ -4,7 +4,38 @@ const app = Vue.createApp({
 		return {
 			enteredContentValue: '',
 			computerContentValue: '',
+			timestamp: '',
 			messagedatas: [
+				{
+					username: true,
+					img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png',
+					content: 'I say you say ',
+				},
+				{
+					username: false,
+					img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png',
+					content: 'You say i say ',
+				},
+				{
+					username: true,
+					img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png',
+					content: 'I say you say ',
+				},
+				{
+					username: false,
+					img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png',
+					content: 'You say i say ',
+				},
+				{
+					username: true,
+					img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png',
+					content: 'I say you say ',
+				},
+				{
+					username: false,
+					img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png',
+					content: 'You say i say ',
+				},
 				{
 					username: true,
 					img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png',
@@ -28,6 +59,7 @@ const app = Vue.createApp({
 					username: true,
 					img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png',
 					content: this.enteredContentValue,
+					time: this.getNow(),
 				};
 				this.messagedatas.push(dataOwer);
 				this.computerContentValue = this.enteredContentValue;
@@ -40,7 +72,7 @@ const app = Vue.createApp({
 					console.log(msg);
 				});
 			} else {
-				alert('請輸入文字');
+				// alert('請輸入文字');
 			}
 		},
 		awaitMessage() {
@@ -51,15 +83,16 @@ const app = Vue.createApp({
 						username: false,
 						img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png',
 						content: that.computerContentValue,
+						time: that.getNow(),
 					});
 				}, 1000);
 			});
 			awaitValue
 				.then(res => {
 					this.messagedatas.push(res);
-					console.log(res);
-					console.log(this.messagedatas);
+
 					this.computerContentValue = '';
+					this.timestamp = '';
 					this.$nextTick(() => {
 						let msg = document.getElementById('chatArea');
 						msg.scrollTop = msg.scrollHeight;
@@ -68,9 +101,30 @@ const app = Vue.createApp({
 				})
 				.catch(err => console.log(err));
 		},
+		// 對話置底function
 		scrollToEnd() {
-			var content = this.$refs.container;
+			const content = this.$refs.container;
 			content.scrollTop = content.scrollHeight;
+		},
+		//時間function
+		getNow() {
+			const today = new Date();
+			const date =
+				today.getFullYear() +
+				'-' +
+				(today.getMonth() + 1) +
+				'-' +
+				today.getDate();
+			const time =
+				today.getHours() +
+				':' +
+				today.getMinutes() +
+				':' +
+				today.getSeconds();
+			const dateTime = date + ' ' + time;
+			this.timestamp = dateTime;
+			console.log(this.timestamp);
+			return dateTime;
 		},
 	},
 	// updated() {
