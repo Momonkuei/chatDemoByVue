@@ -38,6 +38,10 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: initial !important;
+}
+
 .chat-area {
   display: -webkit-box;
   display: -ms-flexbox;
