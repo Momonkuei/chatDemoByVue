@@ -1,8 +1,7 @@
-// @import url("https://fonts.googleapis.com/css?family=Manrope:300,400,500,600,700&display=swap&subset=latin-ext");
-
 :root {
   --settings-icon-color: #c1c7cd;
-
+  --chat-header-bg: #fff;
+  --theme-bg-color: #fff;
   --chat-text-bg: #f1f2f6;
   --theme-color: #0086ff;
 
@@ -33,12 +32,17 @@
 }
 
 .chat-area {
-  flex-grow: 1;
+  // flex-grow: 1;
 }
 
 .chat-area {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  height: 100vh;
+  width: 60%;
+  position: relative;
+
   overflow: auto;
   &-header {
     display: flex;
@@ -46,10 +50,12 @@
     top: 0;
     left: 0;
     z-index: 2;
-    width: 100%;
+    // margin-bottom: 1.5rem;
+    // width: 100%;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
     background: var(--chat-header-bg);
   }
   &-profile {
@@ -63,6 +69,7 @@
   }
   &-main {
     flex-grow: 1;
+    margin: 1rem 0rem;
   }
 }
 
@@ -150,6 +157,7 @@
   position: sticky;
   bottom: 0;
   left: 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 
 .chat-area-footer svg {
@@ -175,6 +183,7 @@
   font-size: 15px;
   margin: 0 12px;
   width: 100%;
+
   &::placeholder {
     color: var(--input-chat-color);
   }
