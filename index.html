@@ -30,7 +30,7 @@
   ></script>
 </head>
 
-<body>
+<body id="body">
 
 
   <div
@@ -43,6 +43,7 @@
     <div
       class="chat-area-main"
       id="chatAreaMain"
+      ref="messagesContainer"
     >
 
       <div v-if="messagedatas.length >0">

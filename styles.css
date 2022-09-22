@@ -39,7 +39,7 @@
 }
 
 body {
-  overflow-x: initial !important;
+  overflow: auto;
 }
 
 .chat-area {
@@ -54,8 +54,8 @@ body {
   height: 100vh;
   width: var(--overall-width);
   position: relative;
-  overflow: auto;
   max-width: 700px;
+  overflow: visible;
 }
 
 .chat-area-header {
@@ -94,6 +94,7 @@ body {
 .chat-area-main {
   min-height: calc(100% -61px);
   margin: 2.5rem 0rem;
+  padding-bottom: 2rem;
   width: 100%;
 }
 
